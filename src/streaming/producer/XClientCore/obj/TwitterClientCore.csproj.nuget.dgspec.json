@@ -1,0 +1,82 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\ws\\scm\\github\\mia\\MIA201-bigdata\\ASAM\\azure-stream-analytics-master\\DataGenerators\\TwitterClientCore\\TwitterClientCore.csproj": {}
+  },
+  "projects": {
+    "C:\\ws\\scm\\github\\mia\\MIA201-bigdata\\ASAM\\azure-stream-analytics-master\\DataGenerators\\TwitterClientCore\\TwitterClientCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\ws\\scm\\github\\mia\\MIA201-bigdata\\ASAM\\azure-stream-analytics-master\\DataGenerators\\TwitterClientCore\\TwitterClientCore.csproj",
+        "projectName": "TwitterClientCore",
+        "projectPath": "C:\\ws\\scm\\github\\mia\\MIA201-bigdata\\ASAM\\azure-stream-analytics-master\\DataGenerators\\TwitterClientCore\\TwitterClientCore.csproj",
+        "packagesPath": "C:\\Users\\jean_\\.nuget\\packages\\",
+        "outputPath": "C:\\ws\\scm\\github\\mia\\MIA201-bigdata\\ASAM\\azure-stream-analytics-master\\DataGenerators\\TwitterClientCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\jean_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Azure.Messaging.EventHubs": {
+              "target": "Package",
+              "version": "[5.3.0-beta.4, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "System.Reactive": {
+              "target": "Package",
+              "version": "[4.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

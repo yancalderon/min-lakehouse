@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = TwitterClientCore
+build_property.ProjectDir = C:\ws\scm\github\mia\MIA201-bigdata\ASAM\azure-stream-analytics-master\DataGenerators\TwitterClientCore\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
