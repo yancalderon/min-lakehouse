@@ -192,8 +192,8 @@ class TweetSimulator:
 
 if __name__ == "__main__":
     # Configuración
-    CONNECTION_STRING = "**ENDPOINT**"
-    EVENTHUB_NAME = "*NAME*"
+    #CONNECTION_STRING = "**ENDPOINT**"
+    #EVENTHUB_NAME = "*NAME*"
     TWEETS_PER_MINUTE = 5
     
     simulator = TweetSimulator(CONNECTION_STRING, EVENTHUB_NAME)
