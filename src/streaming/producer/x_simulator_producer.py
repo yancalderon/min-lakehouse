@@ -192,8 +192,8 @@ class TweetSimulator:
 
 if __name__ == "__main__":
     # Configuración
-    CONNECTION_STRING = "Endpoint=sb://mia201streamdata.servicebus.windows.net/;SharedAccessKeyName=manage;SharedAccessKey=kMzAtyLPROJoOoYjVuI4neFoCs8sbtFIh+AEhA/VYQ4="
-    EVENTHUB_NAME = "twitterhub"
+    CONNECTION_STRING = "**ENDPOINT**"
+    EVENTHUB_NAME = "*NAME*"
     TWEETS_PER_MINUTE = 5
     
     simulator = TweetSimulator(CONNECTION_STRING, EVENTHUB_NAME)
