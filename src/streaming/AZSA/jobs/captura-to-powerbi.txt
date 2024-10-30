@@ -1,0 +1,78 @@
+WITH
+
+[ee646311-6b0b-9c4a-0249-3acd8ba211cb] AS (
+SELECT
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[user] AS record) AS [user],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[metrics] AS record) AS [metrics],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[location] AS record) AS [location],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[hashtags] AS array) AS [hashtags],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[id] AS nvarchar(max)) AS [id],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[created_at] AS nvarchar(max)) AS [created_at],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[text] AS nvarchar(max)) AS [text],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[sentiment_score] AS float) AS [sentiment_score],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[lang] AS nvarchar(max)) AS [lang],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[incident_type] AS nvarchar(max)) AS [incident_type],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[EventProcessedUtcTime] AS datetime) AS [EventProcessedUtcTime],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[PartitionId] AS bigint) AS [PartitionId],
+    TRY_CAST([ee646311-6b0b-9c4a-0249-3acd8ba211cb-input].[EventEnqueuedUtcTime] AS datetime) AS [EventEnqueuedUtcTime]
+FROM [ee646311-6b0b-9c4a-0249-3acd8ba211cb-input]
+TIMESTAMP BY EventEnqueuedUtcTime
+),
+
+[31d01cf0-45c5-4b84-ede5-1746752da052] AS (
+SELECT
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[user] AS [user],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[metrics] AS [metrics],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[location] AS [location],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[hashtags] AS [hashtags],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[id] AS [id],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[created_at] AS [created_at],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[text] AS [text],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[sentiment_score] AS [sentiment_score],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[lang] AS [lang],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[incident_type] AS [incident_type],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[EventProcessedUtcTime] AS [EventProcessedUtcTime],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[PartitionId] AS [PartitionId],
+    [ee646311-6b0b-9c4a-0249-3acd8ba211cb].[EventEnqueuedUtcTime] AS [EventEnqueuedUtcTime]
+FROM [ee646311-6b0b-9c4a-0249-3acd8ba211cb]
+),
+
+[f198e561-986f-178f-eb9e-a9a711a243bb] AS (
+SELECT
+    [87b310dc-9cc6-b05c-fa59-da546620844a].[ArrayIndex] AS [ArrayIndex_hashtags],
+    [87b310dc-9cc6-b05c-fa59-da546620844a].[ArrayValue] AS [ArrayValue_hashtags],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[user],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[metrics],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[location],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[hashtags],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[id],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[created_at],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[text],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[sentiment_score],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[lang],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[incident_type],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[EventProcessedUtcTime],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[PartitionId],
+    [31d01cf0-45c5-4b84-ede5-1746752da052].[EventEnqueuedUtcTime]
+FROM [31d01cf0-45c5-4b84-ede5-1746752da052]
+CROSS APPLY GetArrayElements([31d01cf0-45c5-4b84-ede5-1746752da052].[hashtags]) AS [87b310dc-9cc6-b05c-fa59-da546620844a]
+)
+
+SELECT
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[ArrayIndex_hashtags],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[ArrayValue_hashtags],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[user],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[metrics],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[location],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[id],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[created_at],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[text],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[sentiment_score],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[lang],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[incident_type],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[EventProcessedUtcTime],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[PartitionId],
+    [f198e561-986f-178f-eb9e-a9a711a243bb].[EventEnqueuedUtcTime]
+INTO [63ee4ba3-b026-85a4-7ea1-0ae409a0007a]
+FROM [f198e561-986f-178f-eb9e-a9a711a243bb]
+
